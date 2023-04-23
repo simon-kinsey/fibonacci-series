@@ -1,0 +1,40 @@
+#! /usr/bin/perl
+
+# ==========
+# USAGE: "perl fibonacci.pl" for interactive version,
+#        or "perl fibonacci.pl n" to run n terms of series
+# =========
+
+use v5.30;
+
+# ======
+# Start of Fibonacci sequence here:
+# ======
+my @seq = (0,1);
+
+# ============
+# One step of fibonacci generation
+# REQUIRES: array of last 2 in sequence
+# RETURNS: For pair (n, m), returns (m, n+m)
+# ============
+sub fib_gen {
+  ($_[1], $_[0] + $_[1]);
+}
+# =========
+# Decide whether command line arguments exist
+# =========
+my $terms = shift;
+# == Dialogue when no arguments ===
+if(!$terms) {
+  say "Number of Fibonacci terms required, or '0' to exit:";
+  chomp($terms = <STDIN>);
+}
+
+# =======
+# calculate and print sequence
+# =======
+foreach (0 .. $terms-1) {
+  print $seq[1], ' ';
+  @seq = fib_gen @seq;
+}
+say "\nComplete";
