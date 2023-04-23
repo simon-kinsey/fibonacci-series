@@ -18,5 +18,6 @@ Hello there!!
 - C++
 - TypeScript
 - MATLAB
+- Perl
 - Scheme
 - Scala
